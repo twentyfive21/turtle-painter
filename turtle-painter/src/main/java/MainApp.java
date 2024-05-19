@@ -29,11 +29,11 @@ public class MainApp
         // ************************* Start of program **************************
         // Turtle turtle, int[] coordinate, String color, int border, int width, int height
         // inputs to ask for
-        int x = 0;
+        int x = 100;
         int y = 0;
         int[] cord = {x,y};
+        int border = 5;
         int width = 400;
-        int border = 400;
         int height = 400;
         String color = "pink";
 

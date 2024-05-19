@@ -8,12 +8,9 @@ public class Square extends Shape{
         super(coordinate, color, border, width, height);
     }
 
-
     // method to paint shape
     public void paint(){
-
-        if(width == height){
-            // TODO DRAW
+            int length = 100;
             // set the turtles border width
             turtle.setPenWidth(border);
             // set the turtles color
@@ -27,26 +24,19 @@ public class Square extends Shape{
             // pen down to draw
             turtle.penDown();
             // start drawing top of square
-            turtle.forward(100);
+            turtle.forward(length);
             // right side of square
             turtle.turnRight(90);
-            turtle.forward(100);
+            turtle.forward(length);
             // bottom of square
             turtle.turnRight(90);
-            turtle.forward(100);
+            turtle.forward(length);
             // left side of square
             turtle.turnRight(90);
-            turtle.forward(100
-            );
-
-
-        } else {
-            System.out.println("Error width and height do not match. Not a square.");
-        }
-
+            turtle.forward(length);
     };
 
     public Color getColor(String colorChoice){
-        return colorMap.getOrDefault(color.toLowerCase(), Color.BLACK); // Default to black if color not found
+        return colorMap.getOrDefault(color.toLowerCase(), Color.PINK); // Default to black if color not found
     }
 }
