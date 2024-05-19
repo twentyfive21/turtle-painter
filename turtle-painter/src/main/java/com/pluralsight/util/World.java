@@ -1,4 +1,4 @@
-package com.pluralsight;
+package com.pluralsight.util;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
