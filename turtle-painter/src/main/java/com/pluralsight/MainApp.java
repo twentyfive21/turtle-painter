@@ -1,3 +1,5 @@
+package com.pluralsight;
+
 import java.awt.*;
 
 public class MainApp
