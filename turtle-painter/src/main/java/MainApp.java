@@ -6,52 +6,89 @@ import com.pluralsight.util.Turtle;
 import com.pluralsight.util.World;
 
 import java.awt.*;
+import java.util.Scanner;
 
 public class MainApp
 {
+    // make scanner accessible to all methods
+    static Scanner scanner = new Scanner(System.in);
+
+    // ************************* Start of program **************************
     public static void main(String[] args)
-    { // This starter code to get you familiar with how
+    {
+        System.out.println("\n** DISCLAIMER** recommended to say within (0,0) if width & height " +
+                "\n are both around 300 or else shape will draw out of bounds\n";
+        getUserShape();
 
-        // The world is your canvas
-        World world = new World(200, 200);
-        Turtle turtle = new Turtle(world,-100, -100);
+    }
 
-        int w = 200;
-        int h = 200;
+    public static void getUserShape(){
 
-        // calculate the hypotenuse (diagonal)
-        // a2 + b2 = c2
-//        double widthSquared = Math.pow(w, 2);
-//        double heightSquared = Math.pow(h, 2);
-//        double hypotenuse = Math.sqrt(widthSquared + heightSquared);
+        while (true){
+            displayOptions();
+            String choice = scanner.nextLine().trim();
+            switch (choice) {
+                case "1" : getInput("square");
+                    break;
+                case "2" : getInput("triangle");
+                    break;
+                case "3" : getInput("circle");
+                    break;
+                case "0" : System.out.println("Thank you! Have a nice day! ");
+                    return;
+                default : System.out.println(" ** Invalid input! Try again! :) ** ");
+                    break;
+            }
+        }
 
-        // turtle.forward(hypotenuse);
-        // turtle.goTo(100, 100);
+    }
 
-        // ************************* Start of program **************************
-        // Turtle turtle, int[] coordinate, String color, int border, int width, int height
-        // inputs to ask for
-        int x = 0;
-        int y = 0;
-        int[] cord = {x,y};
-        int border = 10;
-        int width = 400;
-        int height = 400;
-        String color = "pink";
-        int radius = 100;
+    public static void getInput(String type){
 
-        // create object
-        // Square square = new Square(cord, color, border, width,height);
-        // set all colors for square
-        // square.setColor();
-        // square.paint();
+            System.out.print("x axis: ");
+            int x = scanner.nextInt();
+            System.out.print("y axis: ");
+            int y = scanner.nextInt();
+            int[] cord = {x,y};
+            System.out.print("Border width(pen width): ");
+            int border = scanner.nextInt();
+            System.out.println("Try to do a width/height around 300+ To not get a small canvas");
+            System.out.print("Width: ");
+            int width = scanner.nextInt();
+            System.out.print("Height: ");
+            int height = scanner.nextInt();
+            scanner.nextLine();
+            // 400 at least
+            System.out.print("Color: ");
+            String color = scanner.nextLine().toLowerCase();
 
-        // Triangle triangle = new Triangle(cord, color, border, width, height);
-        // triangle.setColor();
-        // triangle.paint();
+        if(type.equals("square") || type.equals("triangle")){
+            getShapeInfo(cord,border,width,height,color);
+        }
 
-        Circle circle = new Circle(cord, color, border, width, height, radius);
-        circle.setColor();
-        circle.paint();
+        if(type.equals("circle")){
+            System.out.print("Radius: ");
+            int radius = scanner.nextInt();
+            scanner.nextLine();
+            getShapeInfo(cord,border,width,height,color,radius);
+        }
+
+    }
+
+    public static void getShapeInfo(int[]cord, int border, int width, int height, String color){
+
+    }
+
+    public static void getShapeInfo(int[]cord, int border, int width, int height, String color, int radius){
+
+    }
+
+    public static void displayOptions(){
+        System.out.println("Please select a shape!");
+        System.out.println("(1) Square");
+        System.out.println("(2) Triangle");
+        System.out.println("(3) Circle ** draws slow for precision **");
+        System.out.println("(0) Exit");
+        System.out.print("Selection: ");
     }
 }
