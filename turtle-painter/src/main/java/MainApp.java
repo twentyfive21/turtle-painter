@@ -14,13 +14,32 @@ public class MainApp
     {
         System.out.println("\n**** ʕ•́ᴥ•̀ʔ DISCLAIMER ʕ•́ᴥ•̀ʔ ****\nRecommended to stay within (0,30) - (0,0) if width & height " +
                 "\nare both around 300 or else shape will draw out of bounds ****\n");
-        getUserShape();
+        getMenuChoice();
 
     }
 
-    public static void getUserShape(){
+    public static void getMenuChoice(){
 
         while (true){
+            System.out.println("(1) Add Shape");
+            System.out.println("(2) Save Image");
+            System.out.println("(3) Exit");
+            System.out.print("Selection: ");
+
+            String choice = scanner.nextLine().trim();
+            switch (choice) {
+                case "1" : getUserShape();
+                    break;
+                case "2" : saveImage();
+                    break;
+                case "3" : System.out.println("Thank you! Have a nice day! ");
+                    return;
+                default : System.out.println(" ** Invalid input! Try again! :) ** ");
+                    break;
+            }
+        }
+}
+    public static void getUserShape(){
             displayOptions();
             String choice = scanner.nextLine().trim();
             switch (choice) {
@@ -30,13 +49,9 @@ public class MainApp
                     break;
                 case "3" : getInput("circle");
                     break;
-                case "0" : System.out.println("Thank you! Have a nice day! ");
-                    return;
                 default : System.out.println(" ** Invalid input! Try again! :) ** ");
                     break;
             }
-        }
-
     }
 
     public static void getInput(String type){
@@ -101,7 +116,10 @@ public class MainApp
         System.out.println("(1) Square");
         System.out.println("(2) Triangle");
         System.out.println("(3) Circle ** draws slow for precision **");
-        System.out.println("(0) Exit");
         System.out.print("Selection: ");
+    }
+
+    public static void saveImage(){
+
     }
 }
