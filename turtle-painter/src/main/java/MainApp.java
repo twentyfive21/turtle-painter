@@ -1,3 +1,4 @@
+import com.pluralsight.shape.Circle;
 import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
 import com.pluralsight.shape.Triangle;
@@ -33,10 +34,11 @@ public class MainApp
         int x = 0;
         int y = 0;
         int[] cord = {x,y};
-        int border = 5;
+        int border = 10;
         int width = 400;
         int height = 400;
         String color = "pink";
+        int radius = 100;
 
         // create object
         // Square square = new Square(cord, color, border, width,height);
@@ -44,8 +46,12 @@ public class MainApp
         // square.setColor();
         // square.paint();
 
-        Triangle triangle = new Triangle(cord, color, border, width, height);
-        triangle.setColor();
-        triangle.paint();
+        // Triangle triangle = new Triangle(cord, color, border, width, height);
+        // triangle.setColor();
+        // triangle.paint();
+
+        Circle circle = new Circle(cord, color, border, width, height, radius);
+        circle.setColor();
+        circle.paint();
     }
 }
