@@ -79,6 +79,7 @@ public abstract class Shape {
     // method to paint shape
     public abstract void paint();
 
+    // set hash map color selections
     public void setColor(){
         colorMap.put("white", Color.WHITE);
         colorMap.put("red", Color.RED);

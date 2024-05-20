@@ -28,6 +28,7 @@ public class Triangle extends Shape{
 
     }
 
+    // get color object
     public Color getColor(String colorChoice){
         return colorMap.getOrDefault(color.toLowerCase(), Color.PINK); // Default to black if color not found
     }

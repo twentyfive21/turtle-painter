@@ -59,7 +59,7 @@ public class MainApp
                 System.out.print("Radius: ");
                 radius = scanner.nextInt();
                 scanner.nextLine();
-                getShapeInfo(cord,border,width,height,color,radius);
+                getShapeInfo(cord,color,border,width,height,radius);
             }
             scanner.nextLine();
 
@@ -87,7 +87,7 @@ public class MainApp
         }
     }
 
-    public static void getShapeInfo(int[]cord, int border, int width, int height, String color, int radius){
+    public static void getShapeInfo(int[] cord, String color, int border, int width, int height, int radius){
         System.out.println("\n~~~~ Drawing shape...Creating magic (ε(*´･ω･)っ†*ﾟ¨ﾟﾟ･*:..☆〜♡॰ॱ ~~~~\n");
         System.out.println("\n !!! Please wait while circle draws for program to continue !!!\n");
         // int[] coordinate, String color, int border, int width, int height, int radius
