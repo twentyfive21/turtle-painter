@@ -1,0 +1,4 @@
+width|height|background
+400|400|white
+shape|x|y|border|color|width|height|radius
+circle|0|20|10|pink|400|400|40

@@ -1,6 +1,7 @@
 package com.pluralsight.shape;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class Triangle extends Shape{
 
@@ -31,5 +32,16 @@ public class Triangle extends Shape{
     // get color object
     public Color getColor(String colorChoice){
         return colorMap.getOrDefault(color.toLowerCase(), Color.PINK); // Default to black if color not found
+    }
+
+    @Override
+    public String toString() {
+        return "Triangle{" +
+                "coordinate=" + Arrays.toString(coordinate) +
+                ", color='" + color + '\'' +
+                ", border=" + border +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
     }
 }

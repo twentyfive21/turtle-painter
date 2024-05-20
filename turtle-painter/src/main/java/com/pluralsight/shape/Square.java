@@ -1,6 +1,7 @@
 package com.pluralsight.shape;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class Square extends Shape{
     // constructor
@@ -39,5 +40,16 @@ public class Square extends Shape{
 
     public Color getColor(String colorChoice){
         return colorMap.getOrDefault(color.toLowerCase(), Color.PINK); // Default to black if color not found
+    }
+
+    @Override
+    public String toString() {
+        return "Square{" +
+                "coordinate=" + Arrays.toString(coordinate) +
+                ", color='" + color + '\'' +
+                ", border=" + border +
+                ", width=" + width +
+                ", height=" + height +
+                '}';
     }
 }

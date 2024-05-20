@@ -1,6 +1,7 @@
 package com.pluralsight.shape;
 
 import java.awt.*;
+import java.util.Arrays;
 
 public class Circle extends Shape{
     // private data members
@@ -52,4 +53,15 @@ public class Circle extends Shape{
         return colorMap.getOrDefault(color.toLowerCase(), Color.PINK); // Default to pink if color not found
     }
 
+    @Override
+    public String toString() {
+        return "Circle{" +
+                "height=" + height +
+                ", width=" + width +
+                ", border=" + border +
+                ", color='" + color + '\'' +
+                ", coordinate=" + Arrays.toString(coordinate) +
+                ", radius=" + radius +
+                '}';
+    }
 }

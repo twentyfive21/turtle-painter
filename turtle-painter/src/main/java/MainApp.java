@@ -1,3 +1,4 @@
+import com.pluralsight.fileManager.FileManager;
 import com.pluralsight.shape.Circle;
 import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
@@ -12,6 +13,7 @@ public class MainApp
     // make scanner accessible to all methods
     static Scanner scanner = new Scanner(System.in);
     static List<Shape> allShapes = new ArrayList<>();
+    static FileManager fileManager = new FileManager();
 
     // ************************* Start of program **************************
     public static void main(String[] args)
@@ -125,7 +127,7 @@ public class MainApp
     }
 
     public static void displayOptions(){
-        System.out.println("Please select a shape!");
+        System.out.println("\nPlease select a shape!");
         System.out.println("(1) Square");
         System.out.println("(2) Triangle");
         System.out.println("(3) Circle ** draws slow for precision **");
@@ -134,6 +136,12 @@ public class MainApp
 
     public static void saveImage(){
         System.out.println("Saving Images...");
+        System.out.println("Please close out all images for file to be written to");
+        System.out.println("Exit program to view csv");
+        for (Shape shapeToSave : allShapes){
+            fileManager.saveImageToFile(shapeToSave);
+        }
+
     }
 
     public static void openImage(){
