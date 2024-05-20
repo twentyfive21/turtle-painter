@@ -1,11 +1,7 @@
 import com.pluralsight.shape.Circle;
-import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
 import com.pluralsight.shape.Triangle;
-import com.pluralsight.util.Turtle;
-import com.pluralsight.util.World;
 
-import java.awt.*;
 import java.util.Scanner;
 
 public class MainApp
@@ -63,7 +59,7 @@ public class MainApp
             String color = scanner.nextLine().toLowerCase();
 
         if(type.equals("square") || type.equals("triangle")){
-            getShapeInfo(cord,border,width,height,color);
+            getShapeInfo(type,cord,border,width,height,color);
         }
 
         if(type.equals("circle")){
@@ -75,12 +71,25 @@ public class MainApp
 
     }
 
-    public static void getShapeInfo(int[]cord, int border, int width, int height, String color){
-
+    public static void getShapeInfo(String type,int[]cord, int border, int width, int height, String color){
+        if(type.equals("square")){
+            // int[] coordinate, String color, int border, int width, int height
+            Square square = new Square(cord,color,border,width,height);
+            square.setColor();
+            square.paint();
+        } else {
+            // int[] coordinate, String color, int border, int width, int height
+            Triangle triangle = new Triangle(cord,color,border,width,height);
+            triangle.setColor();
+            triangle.paint();
+        }
     }
 
     public static void getShapeInfo(int[]cord, int border, int width, int height, String color, int radius){
-
+        // int[] coordinate, String color, int border, int width, int height, int radius
+        Circle circle = new Circle(cord, color, border,width,height,radius);
+        circle.setColor();
+        circle.paint();
     }
 
     public static void displayOptions(){
