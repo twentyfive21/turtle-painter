@@ -20,7 +20,6 @@ public class MainApp
     {
         System.out.println("\n**** ʕ•́ᴥ•̀ʔ DISCLAIMER ʕ•́ᴥ•̀ʔ ****\nRecommended to stay within (0,30) - (0,0) if width & height " +
                 "\nare both around 300 or else shape will draw out of bounds ****\n");
-        System.out.println("**** Circles take the longest to draw and load if saved since 360 points drawn ****");
         getMenuChoice();
 
     }
@@ -29,9 +28,10 @@ public class MainApp
 
         while (true){
             System.out.println("(1) Add Shape");
-            System.out.println("(2) Save Image");
-            System.out.println("(3) Open Image");
-            System.out.println("(4) Exit");
+            System.out.println("(2) Save Image Screenshot");
+            System.out.println("(3) Save Current Paintings");
+            System.out.println("(4) Open Image");
+            System.out.println("(0) Exit");
             System.out.print("Selection: ");
 
             String choice = scanner.nextLine().trim();
@@ -40,9 +40,11 @@ public class MainApp
                     break;
                 case "2" : saveImage();
                     break;
-                case "3" : openImage();
+                case "3" : savePainting();
+                    break;
+                case "4" : openImage();
                     return;
-                case "4" : System.out.println("Thank you! Have a nice day! ");
+                case "0" : System.out.println("Thank you! Have a nice day! ");
                     return;
                 default : System.out.println(" ** Invalid input! Try again! :) ** ");
                     break;
@@ -86,7 +88,7 @@ public class MainApp
                 scanner.nextLine();
                 getShapeInfo(cord,color,border,width,height,radius);
             }
-            scanner.nextLine();
+            // consume next line ?
 
 
         if(type.equals("square") || type.equals("triangle")){
@@ -128,6 +130,7 @@ public class MainApp
     }
 
     public static void displayOptions(){
+        System.out.println();
         System.out.println("\nPlease select a shape!");
         System.out.println("(1) Square");
         System.out.println("(2) Triangle");
@@ -135,15 +138,25 @@ public class MainApp
         System.out.print("Selection: ");
     }
 
-    public static void saveImage(){
-        System.out.println("\nSaving Images...");
-        System.out.println("Please close out all images for file to be written to");
-        System.out.println("Exit program to view csv\n");
-        for (Shape shapeToSave : allShapes){
-            fileManager.saveImageToFile(shapeToSave);
+    public static void savePainting(){
+
+        if(allShapes.size() == 0){
+            System.out.println("\n**** No current shapes in inventory ****\n");
+        } else {
+            System.out.println("\nSaving Images...");
+            for (Shape shapeToSave : allShapes){
+                fileManager.saveImageToFile(shapeToSave);
+            }
         }
 
+
     }
+
+    public static void saveImage(){
+//        for(Shape shape : allShapes){
+//            shape.getTurtle().
+//        }
+    };
 
     public static void openImage(){
         System.out.println("\nOpening Images...");

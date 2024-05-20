@@ -6,3 +6,7 @@ width|height|background
 400|400|white
 shape|x|y|border|color|width|height
 triangle|-20|20|30|orange|400|400
+width|height|background
+400|400|white
+shape|x|y|border|color|width|height|radius
+circle|0|-50|20|pink|400|400|100

@@ -34,17 +34,18 @@ public class Circle extends Shape{
     // pen down to start trail
     turtle.penDown();
     // calculate circle
-    double angleIncrement = 1.0; // The degree by which the turtle will turn in each step
+    double angleIncrement = 10.0; // The degree by which the turtle will turn in each step
     double circumference = 2 * Math.PI * radius; // Circumference of the circle
 
     // Calculate the number of steps needed to complete the circle
-    int steps = 360;
+    int steps = (int) (360 / angleIncrement);
 
     // loop to draw circle
-    for (int i = 0; i < steps; i++) {
-        turtle.turnRight(angleIncrement);
-        turtle.forward(circumference / steps); // Move forward by the length of each segment
-    }
+        for (int i = 0; i < steps; i++) {
+            turtle.turnRight(angleIncrement);
+            // Move forward by the length of each segment
+            turtle.forward(circumference / steps);
+        }
 
     }
 
