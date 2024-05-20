@@ -5,8 +5,11 @@ import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
 import com.pluralsight.shape.Triangle;
 
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
+import java.io.FileReader;
 import java.io.FileWriter;
+import java.util.regex.Pattern;
 
 public class FileManager {
 
@@ -66,13 +69,63 @@ public class FileManager {
             // close buffer
             bufWriter.close();
         } catch (Exception e){
-            System.out.println("Error saving image to file");
+            System.out.println("\nError saving image to file");
         }
 
     }
 
     // open the image method
     public void openImageFromFile(){
+    try{
+        BufferedReader bufReader = new BufferedReader(new FileReader("all-shapes.csv"));
+
+        String input = "";
+
+        while((input = bufReader.readLine()) != null){
+            // shape|x|y|border|color|width|height|radius
+
+            String[] item = input.split(Pattern.quote("|"));
+
+            if(item[0].equals("square") ||item[0].equals("triangle") || item[0].equals("circle")){
+                String type = item[0];
+                int x = Integer.parseInt(item[1]);
+                int y = Integer.parseInt(item[2]);
+                int[] cord = {x,y};
+                int border = Integer.parseInt(item[3]);
+                String color = item[4];
+                int width = Integer.parseInt(item[5]);
+                int height = Integer.parseInt(item[6]);
+
+
+                // write to file if instance of circle
+                if(type.equals("circle")){
+                    int radius = Integer.parseInt(item[7]);
+                    Circle circle = new Circle(cord,color,border,width,height,radius);
+                    circle.setColor();
+                    circle.paint();
+                }
+
+                // write to file if instance of square
+                if (type.equals("square")){
+                    Square square = new Square(cord,color,border,width,height);
+                    square.setColor();
+                    square.paint();
+                }
+
+                // write to file if instance of triangle
+                if (type.equals("triangle")){
+                    Triangle triangle = new Triangle(cord,color,border,width,height);
+                    triangle.setColor();
+                    triangle.paint();
+                }
+            }
+
+        }
+        // close reader
+        bufReader.close();
+    }catch(Exception e){
+        System.out.println("\n**** Error reading from csv!!! ****");
+    }
 
     }
 

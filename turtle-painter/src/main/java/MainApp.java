@@ -20,6 +20,7 @@ public class MainApp
     {
         System.out.println("\n**** ʕ•́ᴥ•̀ʔ DISCLAIMER ʕ•́ᴥ•̀ʔ ****\nRecommended to stay within (0,30) - (0,0) if width & height " +
                 "\nare both around 300 or else shape will draw out of bounds ****\n");
+        System.out.println("**** Circles take the longest to draw and load if saved since 360 points drawn ****");
         getMenuChoice();
 
     }
@@ -130,14 +131,14 @@ public class MainApp
         System.out.println("\nPlease select a shape!");
         System.out.println("(1) Square");
         System.out.println("(2) Triangle");
-        System.out.println("(3) Circle ** draws slow for precision **");
+        System.out.println("(3) Circle ** draws slow for precision **\n");
         System.out.print("Selection: ");
     }
 
     public static void saveImage(){
-        System.out.println("Saving Images...");
+        System.out.println("\nSaving Images...");
         System.out.println("Please close out all images for file to be written to");
-        System.out.println("Exit program to view csv");
+        System.out.println("Exit program to view csv\n");
         for (Shape shapeToSave : allShapes){
             fileManager.saveImageToFile(shapeToSave);
         }
@@ -145,7 +146,10 @@ public class MainApp
     }
 
     public static void openImage(){
-        System.out.println("Opening Images...");
+        System.out.println("\nOpening Images...");
+        fileManager.openImageFromFile();
+        System.out.println();
+        getMenuChoice();
     }
 
 }
