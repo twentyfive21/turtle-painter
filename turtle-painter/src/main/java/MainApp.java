@@ -12,8 +12,8 @@ public class MainApp
     // ************************* Start of program **************************
     public static void main(String[] args)
     {
-        System.out.println("\n** DISCLAIMER** recommended to say within (0,0) if width & height " +
-                "\n are both around 300 or else shape will draw out of bounds\n";
+        System.out.println("\n  ** DISCLAIMER** recommended to say within (0,0) if width & height " +
+                "\n are both around 300 or else shape will draw out of bounds\n");
         getUserShape();
 
     }
@@ -48,7 +48,7 @@ public class MainApp
             int[] cord = {x,y};
             System.out.print("Border width(pen width): ");
             int border = scanner.nextInt();
-            System.out.println("Try to do a width/height around 300+ To not get a small canvas");
+            System.out.println("\n** HINT Try to do a width/height around 350+ To not get a small canvas **");
             System.out.print("Width: ");
             int width = scanner.nextInt();
             System.out.print("Height: ");

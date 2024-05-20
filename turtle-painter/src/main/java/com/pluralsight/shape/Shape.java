@@ -93,5 +93,6 @@ public abstract class Shape {
         colorMap.put("light gray", Color.LIGHT_GRAY);
         colorMap.put("dark gray", Color.DARK_GRAY);
         colorMap.put("gray", Color.GRAY);
+        colorMap.put("grey", Color.GRAY);
     }
 }
