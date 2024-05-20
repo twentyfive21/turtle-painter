@@ -9,6 +9,7 @@ public class Square extends Shape{
     }
 
     // method to paint shape
+    @Override
     public void paint(){
             int length = 100;
             // set the turtles border width

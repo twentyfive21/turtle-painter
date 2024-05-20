@@ -28,7 +28,6 @@ public abstract class Shape {
     }
 
     // setters and getters
-
     public Turtle getTurtle() {
         return turtle;
     }

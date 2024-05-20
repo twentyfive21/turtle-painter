@@ -1,5 +1,6 @@
 import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
+import com.pluralsight.shape.Triangle;
 import com.pluralsight.util.Turtle;
 import com.pluralsight.util.World;
 
@@ -19,9 +20,9 @@ public class MainApp
 
         // calculate the hypotenuse (diagonal)
         // a2 + b2 = c2
-        double widthSquared = Math.pow(w, 2);
-        double heightSquared = Math.pow(h, 2);
-        double hypotenuse = Math.sqrt(widthSquared + heightSquared);
+//        double widthSquared = Math.pow(w, 2);
+//        double heightSquared = Math.pow(h, 2);
+//        double hypotenuse = Math.sqrt(widthSquared + heightSquared);
 
         // turtle.forward(hypotenuse);
         // turtle.goTo(100, 100);
@@ -29,7 +30,7 @@ public class MainApp
         // ************************* Start of program **************************
         // Turtle turtle, int[] coordinate, String color, int border, int width, int height
         // inputs to ask for
-        int x = 100;
+        int x = 0;
         int y = 0;
         int[] cord = {x,y};
         int border = 5;
@@ -38,9 +39,13 @@ public class MainApp
         String color = "pink";
 
         // create object
-        Square square = new Square(cord, color, border, width,height);
+        // Square square = new Square(cord, color, border, width,height);
         // set all colors for square
-        square.setColor();
-        square.paint();
+        // square.setColor();
+        // square.paint();
+
+        Triangle triangle = new Triangle(cord, color, border, width, height);
+        triangle.setColor();
+        triangle.paint();
     }
 }
