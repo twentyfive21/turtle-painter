@@ -1,13 +1,17 @@
 import com.pluralsight.shape.Circle;
+import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
 import com.pluralsight.shape.Triangle;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainApp
 {
     // make scanner accessible to all methods
     static Scanner scanner = new Scanner(System.in);
+    static List<Shape> allShapes = new ArrayList<>();
 
     // ************************* Start of program **************************
     public static void main(String[] args)
@@ -23,7 +27,8 @@ public class MainApp
         while (true){
             System.out.println("(1) Add Shape");
             System.out.println("(2) Save Image");
-            System.out.println("(3) Exit");
+            System.out.println("(3) Open Image");
+            System.out.println("(4) Exit");
             System.out.print("Selection: ");
 
             String choice = scanner.nextLine().trim();
@@ -32,7 +37,9 @@ public class MainApp
                     break;
                 case "2" : saveImage();
                     break;
-                case "3" : System.out.println("Thank you! Have a nice day! ");
+                case "3" : openImage();
+                    return;
+                case "4" : System.out.println("Thank you! Have a nice day! ");
                     return;
                 default : System.out.println(" ** Invalid input! Try again! :) ** ");
                     break;
@@ -92,11 +99,15 @@ public class MainApp
         if(type.equals("square")){
             // int[] coordinate, String color, int border, int width, int height
             Square square = new Square(cord,color,border,width,height);
+            // add to array list
+            allShapes.add(square);
             square.setColor();
             square.paint();
         } else {
             // int[] coordinate, String color, int border, int width, int height
             Triangle triangle = new Triangle(cord,color,border,width,height);
+            // add to array list
+            allShapes.add(triangle);
             triangle.setColor();
             triangle.paint();
         }
@@ -107,6 +118,8 @@ public class MainApp
         System.out.println("\n !!! Please wait while circle draws for program to continue !!!\n");
         // int[] coordinate, String color, int border, int width, int height, int radius
         Circle circle = new Circle(cord,color,border,width,height,radius);
+        // add to array list
+        allShapes.add(circle);
         circle.setColor();
         circle.paint();
     }
@@ -120,6 +133,11 @@ public class MainApp
     }
 
     public static void saveImage(){
-
+        System.out.println("Saving Images...");
     }
+
+    public static void openImage(){
+        System.out.println("Opening Images...");
+    }
+
 }
