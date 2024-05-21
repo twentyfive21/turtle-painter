@@ -4,6 +4,7 @@ import com.pluralsight.shape.Circle;
 import com.pluralsight.shape.Shape;
 import com.pluralsight.shape.Square;
 import com.pluralsight.shape.Triangle;
+import com.pluralsight.util.World;
 
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
@@ -77,6 +78,7 @@ public class FileManager {
     // open the image method
     public void openImageFromFile(){
     try{
+        World world = null;
         BufferedReader bufReader = new BufferedReader(new FileReader("all-shapes.csv"));
 
         String input = "";
@@ -95,26 +97,26 @@ public class FileManager {
                 String color = item[4];
                 int width = Integer.parseInt(item[5]);
                 int height = Integer.parseInt(item[6]);
-
+                world = new World(width, height);
 
                 // write to file if instance of circle
                 if(type.equals("circle")){
                     int radius = Integer.parseInt(item[7]);
-                    Circle circle = new Circle(cord,color,border,width,height,radius);
+                    Circle circle = new Circle(world,cord,color,border,width,height,radius);
                     circle.setColor();
                     circle.paint();
                 }
 
                 // write to file if instance of square
                 if (type.equals("square")){
-                    Square square = new Square(cord,color,border,width,height);
+                    Square square = new Square(world,cord,color,border,width,height);
                     square.setColor();
                     square.paint();
                 }
 
                 // write to file if instance of triangle
                 if (type.equals("triangle")){
-                    Triangle triangle = new Triangle(cord,color,border,width,height);
+                    Triangle triangle = new Triangle(world,cord,color,border,width,height);
                     triangle.setColor();
                     triangle.paint();
                 }

@@ -1,15 +1,17 @@
 package com.pluralsight.shape;
 
+import com.pluralsight.util.World;
+
 import java.awt.*;
 import java.util.Arrays;
 
-public class Circle extends Shape{
+public class Circle extends Shape {
     // private data members
     private int radius;
 
     // constructor
-    public Circle(int[] coordinate, String color, int border, int width, int height, int radius) {
-        super(coordinate, color, border, width, height);
+    public Circle(World world, int[] coordinate, String color, int border, int width, int height, int radius) {
+        super(world, coordinate, color, border, width, height);
         this.radius = radius;
     }
 
@@ -25,28 +27,29 @@ public class Circle extends Shape{
     // override from super class the paint method
     @Override
     public void paint(){
-    // set pen width
-    turtle.setPenWidth(border);
-    // get color object
-    Color userColor = getColor(color);
-    // set color to draw
-    turtle.setColor(userColor);
-    // pen down to start trail
-    turtle.penDown();
-    // calculate circle
-    double angleIncrement = 10.0; // The degree by which the turtle will turn in each step
-    double circumference = 2 * Math.PI * radius; // Circumference of the circle
+        // set pen width
+        turtle.setPenWidth(border);
+        // get color object
+        Color userColor = getColor(color);
+        // set color to draw
+        turtle.setColor(userColor);
+        // pen down to start trail
+        turtle.penDown();
+        // calculate circle
+        double angleIncrement = 10.0; // The degree by which the turtle will turn in each step
+        double circumference = 2 * Math.PI * radius; // Circumference of the circle
 
-    // Calculate the number of steps needed to complete the circle
-    int steps = (int) (360 / angleIncrement);
+        // Calculate the number of steps needed to complete the circle
+        int steps = (int) (360 / angleIncrement);
 
-    // loop to draw circle
+        // loop to draw circle
         for (int i = 0; i < steps; i++) {
             turtle.turnRight(angleIncrement);
             // Move forward by the length of each segment
             turtle.forward(circumference / steps);
         }
 
+        // saveWorld(); // Remove or comment out this line
     }
 
     // method to get color object

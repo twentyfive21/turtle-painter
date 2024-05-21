@@ -10,3 +10,7 @@ width|height|background
 400|400|white
 shape|x|y|border|color|width|height|radius
 circle|0|-50|20|pink|400|400|100
+width|height|background
+500|500|white
+shape|x|y|border|color|width|height
+triangle|-30|-40|30|magenta|500|500

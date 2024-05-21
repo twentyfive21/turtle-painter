@@ -1,12 +1,13 @@
 package com.pluralsight.shape;
 
+import com.pluralsight.util.World;
+
 import java.awt.*;
 import java.util.Arrays;
 
-public class Triangle extends Shape{
-
-    public Triangle(int[] coordinate, String color, int border, int width, int height) {
-        super(coordinate, color, border, width, height);
+public class Triangle extends Shape {
+    public Triangle(World world, int[] coordinate, String color, int border, int width, int height) {
+        super(world, coordinate, color, border, width, height);
     }
 
     @Override
@@ -27,6 +28,7 @@ public class Triangle extends Shape{
         turtle.turnLeft(120);
         turtle.forward(length);
 
+        // saveWorld(); // Remove or comment out this line
     }
 
     // get color object
